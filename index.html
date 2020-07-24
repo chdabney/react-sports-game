@@ -25,10 +25,16 @@
                 }
             }
 
-            shoot = (event) => (
-                console.log('works')
-            )
-
+            shoot = (event) => {
+                if (Math.random() >= 0.5) {
+                    this.setState({
+                        score: this.state.score + 1
+                    })
+                }
+                this.setState({
+                    shotsTaken: this.state.shotsTaken + 1
+                })
+            }
             render() {
                 return (
                     <div>
