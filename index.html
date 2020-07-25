@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <audio id="hordeAudio">
+        <source src="./sounds/557800.mp3" type="audio/mp3">
+    </audio>
+    <audio id="allianceAudio">
+        <source src="./sounds/1955314.mp3" type="audio/mp3">
+    </audio>
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -30,6 +36,14 @@
             }
 
             shoot = (event) => {
+                if (this.props.name === 'Horde') {
+                    const hordeAudio = document.getElementById("hordeAudio")
+                    hordeAudio.play()
+                } else if (this.props.name === 'Alliance') {
+                    const allianceAudio = document.getElementById("allianceAudio")
+                    allianceAudio.play()
+
+                }
                 if (Math.random() >= 0.5) {
                     this.setState({
                         score: this.state.score + 1
@@ -51,7 +65,7 @@
                 return (
                     <div>
                         <h1>{this.props.name}</h1>
-                        <img src={this.props.logo} alt="image" />
+                        <img src={this.props.logo} alt={this.props.name} />
                         <h2>Score: {this.state.score}</h2>
                         <h2>Shots Taken: {this.state.shotsTaken}</h2>
                         <button onClick={this.shoot}>Attack!</button>
