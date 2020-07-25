@@ -15,6 +15,9 @@
     <audio id="allianceAudio">
         <source src="./sounds/1955314.mp3" type="audio/mp3">
     </audio>
+    <audio id="genericAudio">
+        <source src="./sounds/bat+hit+ball.mp3" type="audio/mp3">
+    </audio>
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -42,7 +45,9 @@
                 } else if (this.props.name === 'Alliance') {
                     const allianceAudio = document.getElementById("allianceAudio")
                     allianceAudio.play()
-
+                } else {
+                    const genericAudio = document.getElementById("genericAudio")
+                    genericAudio.play()
                 }
                 if (Math.random() >= 0.5) {
                     this.setState({
@@ -53,7 +58,7 @@
                     shotsTaken: this.state.shotsTaken + 1
                 })
                 this.setState({
-                    shotPercentage: Math.floor((this.state.score / this.state.shotsTaken) * 100) + '%'
+                    shotPercentage: ((this.state.score / this.state.shotsTaken) * 100).toFixed(0) + '%'
                 })
             }
 
@@ -82,8 +87,8 @@
                 <div>
                     <h1 className="venueHeader">Welcome to {props.venue}!</h1>
                     <div className="wrapper">
-                        <Team name='Alliance' logo='./images/alliance3.png' />
-                        <Team name='Horde' logo='./images/horde3.png' />
+                        <Team name={props.home} logo={props.homeLogo} />
+                        <Team name={props.visitor} logo={props.visitorLogo} />
                     </div>
                 </div>
 
@@ -92,7 +97,11 @@
 
         function App(props) {
             return (
-                <Game venue='Alterac Valley' />
+                <Game venue='Alterac Valley'
+                    home='Alliance'
+                    homeLogo='./images/alliance3.png'
+                    visitor='Horde'
+                    visitorLogo='./images/horde3.png' />
             )
         }
 
