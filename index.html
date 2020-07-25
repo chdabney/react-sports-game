@@ -74,7 +74,7 @@
                         <h2>Score: {this.state.score}</h2>
                         <h2>Shots Taken: {this.state.shotsTaken}</h2>
                         <button onClick={this.shoot}>Attack!</button>
-                        <h3>{shotPercent}</h3>
+                        {shotPercent}
                     </div>
                 )
             }
@@ -82,11 +82,16 @@
         }
 
         function Game(props) {
+            let wrapper = 'genericWrapper'
+            if (props.venue === 'Alterac Valley') {
+                wrapper = 'wrapper'
+            }
+
             return (
 
                 <div>
                     <h1 className="venueHeader">Welcome to {props.venue}!</h1>
-                    <div className="wrapper">
+                    <div className={wrapper}>
                         <Team name={props.home} logo={props.homeLogo} />
                         <Team name={props.visitor} logo={props.visitorLogo} />
                     </div>
@@ -97,11 +102,21 @@
 
         function App(props) {
             return (
-                <Game venue='Alterac Valley'
-                    home='Alliance'
-                    homeLogo='./images/alliance3.png'
-                    visitor='Horde'
-                    visitorLogo='./images/horde3.png' />
+                <div>
+
+                    <Game venue='Alterac Valley'
+                        home='Alliance'
+                        homeLogo='./images/alliance3.png'
+                        visitor='Horde'
+                        visitorLogo='./images/horde3.png' />
+                    <Game venue='game2'
+                        home='home'
+                        homeLogo='./images/generic2.png'
+                        visitor='visitor'
+                        visitorLogo='./images/generic2.png' />
+
+                </div>
+
             )
         }
 

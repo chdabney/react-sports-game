@@ -15,6 +15,13 @@
   text-align: center;
   height: 100vh;
 }
+.genericWrapper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
 
 .wrapper img{
     margin: 20px;
