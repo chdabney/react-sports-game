@@ -13,7 +13,8 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  height: 100vh;
+  
+  
 }
 .genericWrapper{
   display: flex;
@@ -30,18 +31,47 @@
 .wrapper h1, 
 .wrapper h2, 
 .wrapper h3{
+  margin-top: 10px;
   color: rgb(229, 255, 0);
+  text-shadow: 0 0 3px black;
+}
+
+h1{
+  text-align: center;
 }
 
 
 
-.venueHeader{
-    margin: 10px;
+.ScoreBoard{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    text-align: center;
     color: black;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(255,0,0,1) 100%); 
+    color: whitesmoke;
+    text-shadow: 0 0 3px black;
+    height: 50px;
 
+
+}
+
+.venueHeader{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/banner2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(229, 255, 0);
+  text-shadow: 0 0 3px black;
+}
+
+.resetGame{
+ margin-top: 300px;
 }
 
 button{
